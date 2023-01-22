@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Input";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Submit Match Data</p>
+
+<form>
+    <div class="form-group">
+        <label>Event</label>
+        <select name="Event" id="Event">
+            <option value="Week1">Week 1</option>
+            <option value="Week2">Week 2</option>
+            <option value="Week3">Week 3</option>
+            <option value="Week4">Week 4</option>
+            <option value="Week5">Week 5</option>
+            <option value="Week6">Week 6</option>
+            <option value="DistrictChampionships">District Championships</option>
+            <option value="FIRSTChampionship">FIRST Championship</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Team</label>
+        <input type="text" placeholder="Team #" />
+    </div>
+    <div class="form-group">
+        <label>Round</label>
+        <input type="text" placeholder="Round #" />
+    </div>
+    <div class="form-group">
+        <label>Auto Pieces</label>
+        <input type="checkbox" name="auto" value="FloorCn"/>Floor Cone
+        <input type="checkbox" name="auto" value="StationCn"/>Station Cone
+        <input type="checkbox" name="auto" value="CenterCn"/>Center Cone
+
+        <input type="checkbox" name="auto" value="FloorCb" />Floor Cube
+        <input type="checkbox" name="auto" value="StationCb" />Station Cube
+        <input type="checkbox" name="auto" value="CenterCb" />Center Cube
+    </div>
+    <div class="form-group">
+        <label>Auto Scoring</label>
+    </div>
+</form>
