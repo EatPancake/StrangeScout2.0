@@ -1,4 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using TripleStrange.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<MatchesModelContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("MatchesModelContext") ?? throw new InvalidOperationException("Connection string 'MatchesModelContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
