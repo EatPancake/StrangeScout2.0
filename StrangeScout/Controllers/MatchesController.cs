@@ -56,7 +56,7 @@ namespace StrangeScout.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Event,TeamNumber,TeamName,Points,Penalties")] Matches matches)
+        public async Task<IActionResult> Create([Bind("ID,Event,TeamNumber,TeamName,Cones,Cubes,DoubleSubstation,SingleSubstation,Center,Top,Mid,Bot")] Matches matches)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace StrangeScout.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Event,TeamNumber,TeamName,Points,Penalties")] Matches matches)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Event,TeamNumber,TeamName,Cones,Cubes,DoubleSubstation,SingleSubstation,Center,Top,Mid,Bot")] Matches matches)
         {
             if (id != matches.ID)
             {

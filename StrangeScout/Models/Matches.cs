@@ -7,9 +7,19 @@ namespace StrangeScout.Models
     {
         [Key]
         public int ID {get; set;}
+        [Required]
         public string? Event {get; set;}
+        [Required]
         public int Round {get; set;}
+        [Required]
         public int TeamNumber {get; set;}
+
+        public int Cones {get; set;}
+        public int Cubes {get; set;}
+
+        public int DoubleSubstation {get; set;}
+        public int SingleSubstation {get; set;}
+        public int Center {get; set;}
 
         public int Top { get; set;}
         public int Mid {get; set;}
@@ -20,7 +30,6 @@ namespace StrangeScout.Models
         public bool Engaged {get; set;}
         
         public int Points {get; set;}
-        public int Penalties {get; set;}
     }
 
     
