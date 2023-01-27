@@ -3,14 +3,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TripleStrange.Data;
+using StrangeScout.Data;
 
 #nullable disable
 
 namespace StrangeScout.Migrations
 {
-    [DbContext(typeof(MatchesModelContext))]
-    [Migration("20230126003610_InitalCreate")]
+    [DbContext(typeof(StrangeScoutContext))]
+    [Migration("20230127170632_InitalCreate")]
     partial class InitalCreate
     {
         /// <inheritdoc />
@@ -21,13 +21,24 @@ namespace StrangeScout.Migrations
 
             modelBuilder.Entity("StrangeScout.Models.Matches", b =>
                 {
-                    b.Property<int>("TeamNumber")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("Bot")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<float>("CycleTime")
+                        .HasColumnType("REAL");
+
+                    b.Property<bool>("Engaged")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Event")
-                        .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("Mid")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("Penalties")
                         .HasColumnType("INTEGER");
@@ -35,11 +46,16 @@ namespace StrangeScout.Migrations
                     b.Property<int>("Points")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("TeamName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Round")
+                        .HasColumnType("INTEGER");
 
-                    b.HasKey("TeamNumber");
+                    b.Property<int>("TeamNumber")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Top")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ID");
 
                     b.ToTable("Matches");
                 });

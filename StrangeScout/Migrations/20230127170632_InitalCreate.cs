@@ -14,16 +14,22 @@ namespace StrangeScout.Migrations
                 name: "Matches",
                 columns: table => new
                 {
-                    TeamNumber = table.Column<int>(type: "INTEGER", nullable: false)
+                    ID = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    TeamName = table.Column<string>(type: "TEXT", nullable: false),
-                    Event = table.Column<string>(type: "TEXT", nullable: false),
+                    Event = table.Column<string>(type: "TEXT", nullable: true),
+                    Round = table.Column<int>(type: "INTEGER", nullable: false),
+                    TeamNumber = table.Column<int>(type: "INTEGER", nullable: false),
+                    Top = table.Column<int>(type: "INTEGER", nullable: false),
+                    Mid = table.Column<int>(type: "INTEGER", nullable: false),
+                    Bot = table.Column<int>(type: "INTEGER", nullable: false),
+                    CycleTime = table.Column<float>(type: "REAL", nullable: false),
+                    Engaged = table.Column<bool>(type: "INTEGER", nullable: false),
                     Points = table.Column<int>(type: "INTEGER", nullable: false),
                     Penalties = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Matches", x => x.TeamNumber);
+                    table.PrimaryKey("PK_Matches", x => x.ID);
                 });
         }
 

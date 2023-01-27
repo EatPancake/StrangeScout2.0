@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using StrangeScout.Models;
 
-namespace TripleStrange.Data
+namespace StrangeScout.Data
 {
-    public class MatchesModelContext : DbContext
+    public class StrangeScoutContext : DbContext
     {
-        public MatchesModelContext (DbContextOptions<MatchesModelContext> options)
+        public StrangeScoutContext (DbContextOptions<StrangeScoutContext> options)
             : base(options)
         {
         }
