@@ -16,16 +16,20 @@ namespace StrangeScout.Migrations
                 {
                     ID = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Event = table.Column<string>(type: "TEXT", nullable: true),
+                    Event = table.Column<string>(type: "TEXT", nullable: false),
                     Round = table.Column<int>(type: "INTEGER", nullable: false),
                     TeamNumber = table.Column<int>(type: "INTEGER", nullable: false),
+                    Cones = table.Column<int>(type: "INTEGER", nullable: false),
+                    Cubes = table.Column<int>(type: "INTEGER", nullable: false),
+                    DoubleSubstation = table.Column<int>(type: "INTEGER", nullable: false),
+                    SingleSubstation = table.Column<int>(type: "INTEGER", nullable: false),
+                    Center = table.Column<int>(type: "INTEGER", nullable: false),
                     Top = table.Column<int>(type: "INTEGER", nullable: false),
                     Mid = table.Column<int>(type: "INTEGER", nullable: false),
                     Bot = table.Column<int>(type: "INTEGER", nullable: false),
                     CycleTime = table.Column<float>(type: "REAL", nullable: false),
                     Engaged = table.Column<bool>(type: "INTEGER", nullable: false),
-                    Points = table.Column<int>(type: "INTEGER", nullable: false),
-                    Penalties = table.Column<int>(type: "INTEGER", nullable: false)
+                    Points = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {

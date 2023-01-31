@@ -10,7 +10,7 @@ using StrangeScout.Data;
 namespace StrangeScout.Migrations
 {
     [DbContext(typeof(StrangeScoutContext))]
-    [Migration("20230127170632_InitalCreate")]
+    [Migration("20230127212854_InitalCreate")]
     partial class InitalCreate
     {
         /// <inheritdoc />
@@ -28,25 +28,38 @@ namespace StrangeScout.Migrations
                     b.Property<int>("Bot")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("Center")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Cones")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Cubes")
+                        .HasColumnType("INTEGER");
+
                     b.Property<float>("CycleTime")
                         .HasColumnType("REAL");
+
+                    b.Property<int>("DoubleSubstation")
+                        .HasColumnType("INTEGER");
 
                     b.Property<bool>("Engaged")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Event")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Mid")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Penalties")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Points")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Round")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("SingleSubstation")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("TeamNumber")

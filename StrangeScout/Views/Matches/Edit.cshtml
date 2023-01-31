@@ -10,28 +10,60 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="TeamNumber" />
+            <input type="hidden" asp-for="ID" />
             <div class="form-group">
-                <label asp-for="Event" class="control-label"></label>
-                <input asp-for="Event" class="form-control" />
-                <span asp-validation-for="Event" class="text-danger"></span>
+                <label asp-for="TeamNumber" class="control-label"></label>
+                <input asp-for="TeamNumber" class="form-control"/>
+                <span asp-validation-for="TeamNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Points" class="control-label"></label>
-                <input asp-for="Points" class="form-control" />
-                <span asp-validation-for="Points" class="text-danger"></span>
+                <label asp-for="Cones" class="control-label"></label>
+                <input asp-for="Cones" class="form-control"/>
+                <span asp-validation-for="Cones" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Penalties" class="control-label"></label>
-                <input asp-for="Penalties" class="form-control" />
-                <span asp-validation-for="Penalties" class="text-danger"></span>
+                <label asp-for="Cubes" class="control-label"></label>
+                <input asp-for="Cubes" class="form-control"/>
+                <span asp-validation-for="Cubes" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <label asp-for="DoubleSubstation" class="control-label"></label>
+                <input asp-for="DoubleSubstation" class="form-control"/>
+                <span asp-validation-for="DoubleSubstation" class="text-danger"></span>
             </div>
-        </form>
+            <div class="form-group">
+                <label asp-for="SingleSubstation" class="control-label"></label>
+                <input asp-for="SingleSubstation" class="form-control"/>
+                <span asp-validation-for="SingleSubstation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Center" class="control-label"></label>
+                <input asp-for="Center" class="form-control"/>
+                <span asp-validation-for="Center" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Top" class="control-label"></label>
+                <input asp-for="Top" class="form-control"/>
+                <span asp-validation-for="Top" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mid" class="control-label"></label>
+                <input asp-for="Mid" class="form-control"/>
+                <span asp-validation-for="Mid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bot" class="control-label"></label>
+                <input asp-for="Bot" class="form-control"/>
+                <span asp-validation-for="Bot" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary"/>
+            </div>      
+
+        </form>        
     </div>
 </div>
 
