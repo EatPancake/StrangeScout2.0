@@ -68,14 +68,14 @@ namespace StrangeScout.Controllers
         }
 
         // GET: Match/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? ID)
         {
-            if (id == null || _context.Matches == null)
+            if (ID == null || _context.Matches == null)
             {
                 return NotFound();
             }
 
-            var matches = await _context.Matches.FindAsync(id);
+            var matches = await _context.Matches.FindAsync(ID);
             if (matches == null)
             {
                 return NotFound();
@@ -88,9 +88,9 @@ namespace StrangeScout.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Event,TeamNumber,TeamName,Cones,Cubes,DoubleSubstation,SingleSubstation,Center,Top,Mid,Bot")] Matches matches)
+        public async Task<IActionResult> Edit(int ID, [Bind("ID,Event,TeamNumber,TeamName,Cones,Cubes,DoubleSubstation,SingleSubstation,Center,Top,Mid,Bot,CycleTime,Engaged,Points")] Matches matches)
         {
-            if (id != matches.ID)
+            if (ID != matches.ID)
             {
                 return NotFound();
             }

@@ -12,7 +12,6 @@
 <table class="table">
     <thead>
         <tr>
-            
             <th>
                 @Html.DisplayNameFor(model => model.Event)
             </th>
@@ -74,9 +73,9 @@
                 @Html.DisplayFor(modelItem => item.Engaged)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.TeamNumber">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TeamNumber">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TeamNumber">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
             </td>
         </tr>
 }

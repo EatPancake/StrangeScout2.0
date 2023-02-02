@@ -10,8 +10,8 @@ using StrangeScout.Data;
 namespace StrangeScout.Migrations
 {
     [DbContext(typeof(StrangeScoutContext))]
-    [Migration("20230127212854_InitalCreate")]
-    partial class InitalCreate
+    [Migration("20230202045757_IntitalCreate")]
+    partial class IntitalCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

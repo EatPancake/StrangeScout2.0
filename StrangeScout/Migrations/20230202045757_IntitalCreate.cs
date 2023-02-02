@@ -5,7 +5,7 @@
 namespace StrangeScout.Migrations
 {
     /// <inheritdoc />
-    public partial class InitalCreate : Migration
+    public partial class IntitalCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
