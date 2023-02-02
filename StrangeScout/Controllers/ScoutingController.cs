@@ -21,7 +21,7 @@ namespace StrangeScout.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Index([Bind("ID,Event,TeamNumber,TeamName,Cones,Cubes,DoubleSubstation,SingleSubstation,Center,Top,Mid,Bot")] Matches matches)
+        public async Task<IActionResult> Index([Bind("ID,Round,Event,TeamNumber,TeamName,Cones,Cubes,DoubleSubstation,SingleSubstation,Center,Top,Mid,Bot")] Matches matches)
         {
             if(ModelState.IsValid)
             {
