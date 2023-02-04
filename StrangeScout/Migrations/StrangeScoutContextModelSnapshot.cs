@@ -40,8 +40,9 @@ namespace StrangeScout.Migrations
                     b.Property<int>("DoubleSubstation")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("Engaged")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Engaged")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Event")
                         .IsRequired()

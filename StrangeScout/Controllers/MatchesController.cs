@@ -46,27 +46,10 @@ namespace StrangeScout.Controllers
         }
 
         // GET: Match/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
 
         // POST: Match/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Event,TeamNumber,TeamName,Cones,Cubes,DoubleSubstation,SingleSubstation,Center,Top,Mid,Bot")] Matches matches)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(matches);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(matches);
-        }
-
         // GET: Match/Edit/5
         public async Task<IActionResult> Edit(int? ID)
         {
@@ -88,7 +71,7 @@ namespace StrangeScout.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int ID, [Bind("ID,Event,TeamNumber,TeamName,Cones,Cubes,DoubleSubstation,SingleSubstation,Center,Top,Mid,Bot,CycleTime,Engaged,Points")] Matches matches)
+        public async Task<IActionResult> Edit(int ID, [Bind("ID,Event,Round,TeamNumber,Cones,Cubes,DoubleSubstation,SingleSubstation,Center,Top,Mid,Bot,CycleTime,Engaged,Points")] Matches matches)
         {
             if (ID != matches.ID)
             {

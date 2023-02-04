@@ -1,5 +1,5 @@
 ﻿@model StrangeScout.Models.Matches
-@{
+@functions{
     int Round = 1;
     int Cones = 0;
     int Cubes = 0;
@@ -9,100 +9,126 @@
     int Top = 0;
     int Mid = 0;
     int Bot = 0;
+
 }
+<head>
+    <script>
+        function add(id)
+        {
+            var val = document.getElementById(id).value;
+            val++;
+            document.getElementById(id).value = val;
+        }
+        function sub(id)
+        {
+            var val = document.getElementById(id).value;
+            val--;
+            document.getElementById(id).value = val;
+        }
+    </script>
+    <h1>Input</h1>
 
-<h1>Input</h1>
+    <h4>Submit Match Data</h4>
+    
+    <hr/>
+</head>
 
-<h4>Submit Match Data</h4>
+<body>
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Index" class="forms">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div asp-asp-validation-summary="ID" class="hidden"></div>
+                <div class="form-group">
+                    <label asp-for="Event" class="control-label"></label>
+                    <select asp-for="Event" class="control-label">
+                        <option value="week 1">Week 1</option>
+                        <option value="week 2">Week 2</option>
+                        <option value="week 3">Week 3</option>
+                        <option value="week 4">Week 5</option>
+                        <option value="week 5">Week 5</option>
+                        <option value="week 6">Week 6</option>
+                        <option value="DistrictChampionships">District Championships</option>
+                        <option value="FIRSTChampionship">FIRST Championship</option>
+                    </select>
+                    <span asp-validation-for="Event" class="text-danger"></span>
+                </div>
+                <div>
+                    <label asp-for="Round" class="control-label"></label>
+                    <input asp-for="Round" class="form-control"/>
+                    <span asp-validation-for="Round" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TeamNumber" class="control-label"></label>
+                    <input asp-for="TeamNumber" class="form-control"/>
+                    <span asp-validation-for="TeamNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cones" class="control-label"></label>
+                    @* <button type="button" class="inputs sub" onclick="sub('cone')">-</button> *@
+                    <input asp-for="Cones" class="inputs" id="cone" value="0"/>
+                    <button type="button" class="inputs add" onclick="add('cone')">+</button>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cubes" class="control-label"></label>
+                    @* <button type="button" class="inputs sub" onclick="sub('cube')">-</button> *@
+                    <input asp-for="Cubes" class="inputs" id="cube" value="0"/>
+                    <button type="button" class="inputs add" onclick="add('cube')">+</button>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DoubleSubstation" class="control-label"></label>
+                    @* <button type="button" class="inputs sub" onclick="sub('doubleSubstation')">-</button> *@
+                    <input asp-for="DoubleSubstation" class="inputs" id="doubleSubstation" value="0"/>
+                    <button type="button" class="inputs add" onclick="add('doubleSubstation')">+</button>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SingleSubstation" class="control-label"></label>
+                    @* <button type="button" class="inputs sub" onclick="sub('singleSubstation')">-</button> *@
+                    <input asp-for="SingleSubstation" class="inputs" id="singleSubstation" value="0"/>
+                    <button type="button" class="inputs add" onclick="add('singleSubstation')">+</button>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Center" class="control-label"></label>
+                    @* <button type="button" class="inputs sub" onclick="sub('center')">-</button> *@
+                    <input asp-for="Center" class="inputs" id="center" value="0"/>
+                    <button type="button" class="inputs add" onclick="add('center')">+</button>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Top" class="control-label"></label>
+                    @* <button type="button" class="inputs sub" onclick="sub('top')">-</button> *@
+                    <input asp-for="Top" class="inputs" id="top" value="0"/>
+                    <button type="button" class="inputs add" onclick="add('top')">+</button>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Mid" class="control-label"></label>
+                    @* <button type="button" class="inputs sub" onclick="sub('mid')">-</button> *@
+                    <input asp-for="Mid" class="inputs" id="mid" value="0"/>
+                    <button type="button" class="inputs add" onclick="add('mid')">+</button>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Bot" class="control-label"></label>
+                    @* <button type="button" class="inputs sub" onclick="sub('bot')">-</button> *@
+                    <input asp-for="Bot" class="inputs" id="bot" value="0"/>
+                    <button type="button" class="inputs add" onclick="add('bot')">+</button>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Engaged" class="control-label"></label>
+                    <select asp-for="Engaged" class="control-label">
+                        <option selected value="None">None</option>
+                        <option value="Docked">Docked</option>
+                        <option value="Engaged">Engaged</option>
+                    </select>
+                    <span asp-validation-for="Engaged" class="text-danger"></span>
+                </div>
 
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary"/>
+                </div>      
 
-<hr/>
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Index">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div asp-asp-validation-summary="ID" class="hidden"></div>
-            <div class="form-group">
-                <label asp-for="Event" class="control-label"></label>
-                <select asp-for="Event" class="control-label">
-                    <option value="week 1">Week 1</option>
-                    <option value="week 2">Week 2</option>
-                    <option value="week 3">Week 3</option>
-                    <option value="week 4">Week 5</option>
-                    <option value="week 5">Week 5</option>
-                    <option value="week 6">Week 6</option>
-                    <option value="DistrictChampionships">District Championships</option>
-                    <option value="FIRSTChampionship">FIRST Championship</option>
-                </select>
-                <span asp-validation-for="Event" class="text-danger"></span>
-            </div>
-            <div>
-                <label asp-for="Round" class="control-label"></label>
-                <input asp-for="Round" class="form-control" value="@Round"/>
-                <span asp-validation-for="Round" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TeamNumber" class="control-label"></label>
-                <input asp-for="TeamNumber" class="form-control"/>
-                <span asp-validation-for="TeamNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cones" class="control-label"></label>
-                <input asp-for="Cones" class="form-control" value="@Cones"/>
-                <span asp-validation-for="Cones" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cubes" class="control-label"></label>
-                <input asp-for="Cubes" class="form-control" value="@Cubes"/>
-                <span asp-validation-for="Cubes" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DoubleSubstation" class="control-label"></label>
-                <input asp-for="DoubleSubstation" class="form-control" value="@DoubleSubstation"/>
-                <span asp-validation-for="DoubleSubstation" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SingleSubstation" class="control-label"></label>
-                <input asp-for="SingleSubstation" class="form-control" value="@SingleSubstation"/>
-                <span asp-validation-for="SingleSubstation" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Center" class="control-label"></label>
-                <input asp-for="Center" class="form-control" value="@Center"/>
-                <span asp-validation-for="Center" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Top" class="control-label"></label>
-                <input asp-for="Top" class="form-control" value="@Top"/>
-                <span asp-validation-for="Top" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Mid" class="control-label"></label>
-                <input asp-for="Mid" class="form-control" value="@Mid"/>
-                <span asp-validation-for="Mid" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Bot" class="control-label"></label>
-                <input asp-for="Bot" class="form-control" value="@Bot"/>
-                <span asp-validation-for="Bot" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Engaged" class="control-label"></label>
-                <select asp-for="Engaged" class="control-label">
-                    <option value="None">None</option>
-                    <option value="Docked">Docked</option>
-                    <option value="Engaged">Engaged</option>
-                </select>
-                <span asp-validation-for="Engaged" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary"/>
-            </div>      
-
-        </form>        
+            </form>        
+        </div>
     </div>
-</div>
-
+</body>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

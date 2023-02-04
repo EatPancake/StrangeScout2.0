@@ -5,7 +5,7 @@
 namespace StrangeScout.Migrations
 {
     /// <inheritdoc />
-    public partial class IntitalCreate : Migration
+    public partial class Initalcreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -28,7 +28,7 @@ namespace StrangeScout.Migrations
                     Mid = table.Column<int>(type: "INTEGER", nullable: false),
                     Bot = table.Column<int>(type: "INTEGER", nullable: false),
                     CycleTime = table.Column<float>(type: "REAL", nullable: false),
-                    Engaged = table.Column<bool>(type: "INTEGER", nullable: false),
+                    Engaged = table.Column<string>(type: "TEXT", nullable: false),
                     Points = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>

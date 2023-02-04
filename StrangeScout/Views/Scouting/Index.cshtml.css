@@ -8,3 +8,29 @@ h4 {
 form {
     align-items: center;
 }
+
+button.inputs{
+    width: 40%;
+    height: 40%;
+    border: 2px;
+    border-radius: 6px;
+    margin-bottom: 3%;
+    
+}
+
+button.add{
+    background-color: lightblue;
+}
+button.sub{
+    background-color: palevioletred;
+}
+input.inputs{
+    border: 2px solid red;
+    border-radius: 4px;
+}
+
+.col-md-4{
+    margin:auto;
+    width: auto;
+
+}

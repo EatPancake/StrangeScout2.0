@@ -10,8 +10,8 @@ using StrangeScout.Data;
 namespace StrangeScout.Migrations
 {
     [DbContext(typeof(StrangeScoutContext))]
-    [Migration("20230202045757_IntitalCreate")]
-    partial class IntitalCreate
+    [Migration("20230202220239_Initalcreate")]
+    partial class Initalcreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,8 +43,9 @@ namespace StrangeScout.Migrations
                     b.Property<int>("DoubleSubstation")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("Engaged")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Engaged")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Event")
                         .IsRequired()
