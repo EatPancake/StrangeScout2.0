@@ -13,6 +13,32 @@
 }
 <head>
     <script>
+        const Mobility_A = 3;
+        const Top_A = 6;
+        const Mid_A = 4;
+        const Bot_A = 3;
+        const Docked_A = 8;
+        const Engaged_A = 12;
+
+        const Top_T = 5;
+        const Mid_T = 3;
+        const Bot_T = 2;
+        const Line_T = 5;
+        
+        const Docked_E = 6;
+        const Engaged_E = 10;
+        const Parked_E = 2;
+
+        
+
+
+
+        var startTime = null;
+        var endTime = null;
+        var times = [];
+
+        @* document.getElementById("cycle").style.display = "none"; *@
+
         function add(id)
         {
             var val = document.getElementById(id).value;
@@ -25,11 +51,35 @@
             val--;
             document.getElementById(id).value = val;
         }
+
+        function cycleStart()
+        {
+            startTime = Date.now();
+            document.getElementById("time").innerHTML = "Started";
+        }
+        function cycleStop()
+        {
+            endTime = Date.now();
+            var time = Date.now() - startTime;
+            time = time / 1000;
+            times.push(time);
+            average();
+        }
+        function average()
+        {
+            var num = 0;
+            for(var i = 0; i < times.length; i++)
+            {
+                num += times[i];
+            }
+            num = num/times.length;
+            document.getElementById("cyclei").value = num;
+        }
     </script>
     <h1>Input</h1>
 
     <h4>Submit Match Data</h4>
-    
+
     <hr/>
 </head>
 
@@ -37,6 +87,12 @@
     <div class="row">
         <div class="col-md-4">
             <form asp-action="Index" class="forms">
+                <div>
+                    <p id="time">Cycle</p>
+                    <button type="button" onclick="cycleStart()">Start</button>
+                    <button type="button" onclick="average()">End</button>
+                </div>
+                
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div asp-asp-validation-summary="ID" class="hidden"></div>
                 <div class="form-group">
@@ -67,13 +123,13 @@
                     <label asp-for="Cones" class="control-label"></label>
                     @* <button type="button" class="inputs sub" onclick="sub('cone')">-</button> *@
                     <input asp-for="Cones" class="inputs" id="cone" value="0"/>
-                    <button type="button" class="inputs add" onclick="add('cone')">+</button>
+                    <button type="button" class="inputs add" onclick="add('cone');cycleStart();">+</button>
                 </div>
                 <div class="form-group">
                     <label asp-for="Cubes" class="control-label"></label>
                     @* <button type="button" class="inputs sub" onclick="sub('cube')">-</button> *@
                     <input asp-for="Cubes" class="inputs" id="cube" value="0"/>
-                    <button type="button" class="inputs add" onclick="add('cube')">+</button>
+                    <button type="button" class="inputs add" onclick="add('cube');cycleStart();">+</button>
                 </div>
                 <div class="form-group">
                     <label asp-for="DoubleSubstation" class="control-label"></label>
@@ -97,19 +153,19 @@
                     <label asp-for="Top" class="control-label"></label>
                     @* <button type="button" class="inputs sub" onclick="sub('top')">-</button> *@
                     <input asp-for="Top" class="inputs" id="top" value="0"/>
-                    <button type="button" class="inputs add" onclick="add('top')">+</button>
+                    <button type="button" class="inputs add" onclick="add('top');cycleStop();">+</button>
                 </div>
                 <div class="form-group">
                     <label asp-for="Mid" class="control-label"></label>
                     @* <button type="button" class="inputs sub" onclick="sub('mid')">-</button> *@
                     <input asp-for="Mid" class="inputs" id="mid" value="0"/>
-                    <button type="button" class="inputs add" onclick="add('mid')">+</button>
+                    <button type="button" class="inputs add" onclick="add('mid');cycleStop();">+</button>
                 </div>
                 <div class="form-group">
                     <label asp-for="Bot" class="control-label"></label>
                     @* <button type="button" class="inputs sub" onclick="sub('bot')">-</button> *@
                     <input asp-for="Bot" class="inputs" id="bot" value="0"/>
-                    <button type="button" class="inputs add" onclick="add('bot')">+</button>
+                    <button type="button" class="inputs add" onclick="add('bot');cycleStop();">+</button>
                 </div>
                 <div class="form-group">
                     <label asp-for="Engaged" class="control-label"></label>
@@ -120,7 +176,9 @@
                     </select>
                     <span asp-validation-for="Engaged" class="text-danger"></span>
                 </div>
-
+                <div class="cycle" id="cycle">
+                    <input asp-for="CycleTime" class="inputs" id="cyclei" value="0"/>
+                </div>
                 <div class="form-group">
                     <input type="submit" value="Save" class="btn btn-primary"/>
                 </div>      
