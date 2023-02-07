@@ -25,13 +25,25 @@ namespace StrangeScout.Migrations
                     b.Property<int>("Bot")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("Bot_A")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("Center")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Center_A")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Cones")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("Cones_A")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("Cubes")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Cubes_A")
                         .HasColumnType("INTEGER");
 
                     b.Property<float>("CycleTime")
@@ -40,7 +52,14 @@ namespace StrangeScout.Migrations
                     b.Property<int>("DoubleSubstation")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("DoubleSubstation_A")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Engaged")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Engaged_A")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -49,6 +68,9 @@ namespace StrangeScout.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Mid")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Mid_A")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Points")
@@ -60,10 +82,16 @@ namespace StrangeScout.Migrations
                     b.Property<int>("SingleSubstation")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("SingleSubstation_A")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("TeamNumber")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Top")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Top_A")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("ID");
