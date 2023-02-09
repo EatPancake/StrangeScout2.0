@@ -38,10 +38,8 @@ namespace StrangeScout.Models
 
         public float CycleTime {get; set;}
 
-        [Required]
         public string? Engaged_A {get; set;}
 
-        [Required]
         public string? Engaged {get; set;}
         
         public int Points {get; set;}
