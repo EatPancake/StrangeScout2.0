@@ -101,6 +101,7 @@
             <div asp-asp-validation-summary="ID" class="hidden"></div>
                 <div id="match" class="match">
                     <div class="form-group">
+                        <h4>Match Info</h4>
                         <label asp-for="Event" class="control-label"></label>
                         <select asp-for="Event" class="control-label">
                             <option value="week 1">Week 1</option>
@@ -125,65 +126,50 @@
                         <span asp-validation-for="TeamNumber" class="text-danger"></span>
                     </div>
 
-                    <button type="button" class="inputs" onclick="hideID('match');showID('auto');hideID('place_a');hideID('location_a')">Done</button>
+                    <button type="button" class="inputs next" onclick="hideID('match');showID('auto');hideID('place_a');hideID('location_a')">Done</button>
                 </div>
 
 
                 <div class="auto" id="auto">
+                    <h4>Autonomous</h4>
                     <div class="obj_a" id="obj_a">
                         <div class="form-group">
-                            <label asp-for="Cones_A" class="control-label"></label>
-                            @* <button type="button" class="inputs sub" onclick="sub('cone')">-</button> *@
-                            <input asp-for="Cones_A" class="inputs" id="cone_a" value="0"/>
-                            <button type="button" class="inputs add" onclick="add('cone_a');hideID('obj_a');showID('location_a')">+</button>
+                            <input asp-for="Cones_A" class="inputs" id="cone_a" type="hidden" value="0"/>
+                            <button type="button" class="inputs add" onclick="add('cone_a');hideID('obj_a');showID('location_a')">Cone</button>
                         </div>
                         <div class="form-group">
-                            <label asp-for="Cubes_A" class="control-label"></label>
-                            @* <button type="button" class="inputs sub" onclick="sub('cube')">-</button> *@
-                            <input asp-for="Cubes_A" class="inputs" id="cube_a" value="0"/>
-                            <button type="button" class="inputs add" onclick="add('cube_a');hideID('obj_a');showID('location_a')">+</button>
+                            <input type="hidden" asp-for="Cubes_A" class="inputs" id="cube_a" value="0"/>
+                            <button type="button" class="inputs add" onclick="add('cube_a');hideID('obj_a');showID('location_a')">Cube</button>
                         </div>
                     </div>
 
                     <div class="location_a" id="location_a">
                         <div class="form-group">
-                            <label asp-for="DoubleSubstation_A" class="control-label"></label>
-                            @* <button type="button" class="inputs sub" onclick="sub('doubleSubstation')">-</button> *@
-                            <input asp-for="DoubleSubstation_A" class="inputs" id="doubleSubstation_a" value="0"/>
-                            <button type="button" class="inputs add" onclick="add('doubleSubstation_a');hideID('location_a');showID('place_a')">+</button>
+                            <input type="hidden" asp-for="DoubleSubstation_A" class="inputs" id="doubleSubstation_a" value="0"/>
+                            <button type="button" class="inputs add" onclick="add('doubleSubstation_a');hideID('location_a');showID('place_a')">Double Station</button>
                         </div>
                         <div class="form-group">
-                            <label asp-for="SingleSubstation_A" class="control-label"></label>
-                            @* <button type="button" class="inputs sub" onclick="sub('singleSubstation')">-</button> *@
-                            <input asp-for="SingleSubstation_A" class="inputs" id="singleSubstation_a" value="0"/>
-                            <button type="button" class="inputs add" onclick="add('singleSubstation_a');hideID('location_a');showID('place_a')">+</button>
+                            <input type="hidden" asp-for="SingleSubstation_A" class="inputs" id="singleSubstation_a" value="0"/>
+                            <button type="button" class="inputs add" onclick="add('singleSubstation_a');hideID('location_a');showID('place_a')">Single Station</button>
                         </div>
                         <div class="form-group">
-                            <label asp-for="Center_A" class="control-label"></label>
-                            @* <button type="button" class="inputs sub" onclick="sub('center')">-</button> *@
-                            <input asp-for="Center_A" class="inputs" id="center_a" value="0"/>
-                            <button type="button" class="inputs add" onclick="add('center_a');hideID('location_a');showID('place_a')">+</button>
+                            <input type="hidden" asp-for="Center_A" class="inputs" id="center_a" value="0"/>
+                            <button type="button" class="inputs add" onclick="add('center_a');hideID('location_a');showID('place_a')">Center Floor</button>
                         </div>
                     </div>
 
                     <div class="place_a" id="place_a">
                         <div class="form-group">
-                            <label asp-for="Top_A" class="control-label"></label>
-                            @* <button type="button" class="inputs sub" onclick="sub('top')">-</button> *@
-                            <input asp-for="Top_A" class="inputs" id="top_a" value="0"/>
-                            <button type="button" class="inputs add" onclick="add('top_a');hideID('place_a');showID('obj_a')">+</button>
+                            <input type="hidden" asp-for="Top_A" class="inputs" id="top_a" value="0"/>
+                            <button type="button" class="inputs add" onclick="add('top_a');hideID('place_a');showID('obj_a')">Scored Top</button>
                         </div>
                         <div class="form-group">
-                            <label asp-for="Mid_A" class="control-label"></label>
-                            @* <button type="button" class="inputs sub" onclick="sub('mid')">-</button> *@
-                            <input asp-for="Mid_A" class="inputs" id="mid_a" value="0"/>
-                            <button type="button" class="inputs add" onclick="add('mid_a');hideID('place_a');showID('obj_a')">+</button>
+                            <input type="hidden" asp-for="Mid_A" class="inputs" id="mid_a" value="0"/>
+                            <button type="button" class="inputs add" onclick="add('mid_a');hideID('place_a');showID('obj_a')">Scored Mid</button>
                         </div>
                         <div class="form-group">
-                            <label asp-for="Bot_A" class="control-label"></label>
-                            @* <button type="button" class="inputs sub" onclick="sub('bot')">-</button> *@
-                            <input asp-for="Bot_A" class="inputs" id="bot_a" value="0"/>
-                            <button type="button" class="inputs add" onclick="add('bot_a');hideID('place_a');showID('obj_a')">+</button>
+                            <input type="hidden" asp-for="Bot_A" class="inputs" id="bot_a" value="0"/>
+                            <button type="button" class="inputs add" onclick="add('bot_a');hideID('place_a');showID('obj_a')">Scored Bot</button>
                         </div>
                     </div>
 
@@ -197,67 +183,52 @@
                         <span asp-validation-for="Engaged_A" class="text-danger"></span>
 
 
-                        <button type="button" class="inputs" onclick="hideID('auto');showID('tele');hideID('location');hideID('place')">Done</button>
+                        <button type="button" class="inputs next" onclick="hideID('auto');showID('tele');hideID('location');hideID('place')">Done</button>
                     </div>
                 </div>
 
 
 
                 <div class="tele" id="tele">
+                    <h4>Teleop</h4>
                     <div class="obj" id="obj">
                         <div class="form-group">
-                            <label asp-for="Cones" class="control-label"></label>
-                            @* <button type="button" class="inputs sub" onclick="sub('cone')">-</button> *@
-                            <input asp-for="Cones" class="inputs" id="cone" value="0"/>
-                            <button type="button" class="inputs add" onclick="showID('location');hideID('obj');add('cone');cycleStart()">+</button>
+                            <input type="hidden" asp-for="Cones" class="inputs" id="cone" value="0"/>
+                            <button type="button" class="inputs add" onclick="showID('location');hideID('obj');add('cone');cycleStart()">Cone</button>
                         </div>
                         <div class="form-group">
-                            <label asp-for="Cubes" class="control-label"></label>
-                            @* <button type="button" class="inputs sub" onclick="sub('cube')">-</button> *@
-                            <input asp-for="Cubes" class="inputs" id="cube" value="0"/>
-                            <button type="button" class="inputs add" onclick="showID('location');hideID('obj');add('cube');cycleStart();hideID('obj')">+</button>
+                            <input type="hidden" asp-for="Cubes" class="inputs" id="cube" value="0"/>
+                            <button type="button" class="inputs add" onclick="showID('location');hideID('obj');add('cube');cycleStart();hideID('obj')">Cube</button>
                         </div>
                     </div>
 
                     <div class="location" id="location">
                         <div class="form-group">
-                            <label asp-for="DoubleSubstation" class="control-label"></label>
-                            @* <button type="button" class="inputs sub" onclick="sub('doubleSubstation')">-</button> *@
-                            <input asp-for="DoubleSubstation" class="inputs" id="doubleSubstation" value="0"/>
-                            <button type="button" class="inputs add" onclick="add('doubleSubstation');showID('place');hideID('location')">+</button>
+                            <input type="hidden" asp-for="DoubleSubstation" class="inputs" id="doubleSubstation" value="0"/>
+                            <button type="button" class="inputs add" onclick="add('doubleSubstation');showID('place');hideID('location')">Double Station</button>
                         </div>
                         <div class="form-group">
-                            <label asp-for="SingleSubstation" class="control-label"></label>
-                            @* <button type="button" class="inputs sub" onclick="sub('singleSubstation')">-</button> *@
-                            <input asp-for="SingleSubstation" class="inputs" id="singleSubstation" value="0"/>
-                            <button type="button" class="inputs add" onclick="add('singleSubstation');showID('place');hideID('location')">+</button>
+                            <input type="hidden" asp-for="SingleSubstation" class="inputs" id="singleSubstation" value="0"/>
+                            <button type="button" class="inputs add" onclick="add('singleSubstation');showID('place');hideID('location')">Single Station</button>
                         </div>
                         <div class="form-group">
-                            <label asp-for="Center" class="control-label"></label>
-                            @* <button type="button" class="inputs sub" onclick="sub('center')">-</button> *@
-                            <input asp-for="Center" class="inputs" id="center" value="0"/>
-                            <button type="button" class="inputs add" onclick="add('center');showID('place');hideID('location')">+</button>
+                            <input type="hidden" asp-for="Center" class="inputs" id="center" value="0"/>
+                            <button type="button" class="inputs add" onclick="add('center');showID('place');hideID('location')">Center Floor</button>
                         </div>
                     </div>
 
                     <div class="place" id="place">
                         <div class="form-group">
-                            <label asp-for="Top" class="control-label"></label>
-                            @* <button type="button" class="inputs sub" onclick="sub('top')">-</button> *@
-                            <input asp-for="Top" class="inputs" id="top" value="0"/>
-                            <button type="button" class="inputs add" onclick="add('top');cycleStop();showID('obj');hideID('place')">+</button>
+                            <input type="hidden" asp-for="Top" class="inputs" id="top" value="0"/>
+                            <button type="button" class="inputs add" onclick="add('top');cycleStop();showID('obj');hideID('place')">Scored Top</button>
                         </div>
                         <div class="form-group">
-                            <label asp-for="Mid" class="control-label"></label>
-                            @* <button type="button" class="inputs sub" onclick="sub('mid')">-</button> *@
-                            <input asp-for="Mid" class="inputs" id="mid" value="0"/>
-                            <button type="button" class="inputs add" onclick="add('mid');cycleStop();showID('obj');hideID('place')">+</button>
+                            <input type="hidden" asp-for="Mid" class="inputs" id="mid" value="0"/>
+                            <button type="button" class="inputs add" onclick="add('mid');cycleStop();showID('obj');hideID('place')">Scored Mid</button>
                         </div>
                         <div class="form-group">
-                            <label asp-for="Bot" class="control-label"></label>
-                            @* <button type="button" class="inputs sub" onclick="sub('bot')">-</button> *@
-                            <input asp-for="Bot" class="inputs" id="bot" value="0"/>
-                            <button type="button" class="inputs add" onclick="add('bot');cycleStop();showID('obj');hideID('place')">+</button>
+                            <input type="hidden" asp-for="Bot" class="inputs" id="bot" value="0"/>
+                            <button type="button" class="inputs add" onclick="add('bot');cycleStop();showID('obj');hideID('place')">Scored Bot</button>
                         </div>
                     </div>
                     <div class="form-group">
