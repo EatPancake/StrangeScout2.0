@@ -71,7 +71,7 @@ namespace StrangeScout.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int ID, [Bind("ID,Event,Round,TeamNumber,Cones,Cubes,DoubleSubstation,SingleSubstation,Center,Top,Mid,Bot,CycleTime,Engaged,Points")] Matches matches)
+        public async Task<IActionResult> Edit(int ID, [Bind("ID,Event,Round,TeamNumber,Cones,Cubes,DoubleSubstation,SingleSubstation,Center,Top,Mid,Bot,CycleTime,Engaged,Points,Mobility,Parked")] Matches matches)
         {
             if (ID != matches.ID)
             {

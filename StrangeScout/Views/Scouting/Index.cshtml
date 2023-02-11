@@ -39,6 +39,7 @@
         var points = 0;
 
         document.getElementById("cyclei").hidden = true;
+        document.getElementById("hidden").style.display ="none";
 
         function add(id)
         {
@@ -85,18 +86,62 @@
         {
             document.getElementById(id).style.display = "inline";
         }
+        function setMobility()
+        {
+            document.getElementById('mobile').value = "true";
+        }
+        function setParked()
+        {
+            document.getElementById('parked').value = "true";
+        }
+
+
+        function score()
+        {
+            var points_a = 0;
+            var points_t = 0;
+            var points_e = 0;
+            var points = 0;
+            points_a += document.getElementById('top_a').value * Top_A;
+            points_a += document.getElementById('mid_a').value * Mid_A;
+            points_a += document.getElementById('bot_a').value * Bot_A;
+            if(document.getElementById("engaged_a").value == "Engaged")
+            {
+                points_a += Engaged_A;
+            } else if(document.getElementById("engaged_a").value == "Docked")
+            {
+                points_a += Docked_A;
+            }
+            points_t += document.getElementById('top').value * Top_T;
+            points_t += document.getElementById('mid').value * Mid_T;
+            points_t += document.getElementById('bot').value * Bot_T;
+
+            points_e += document.getElementById('top_e').value * Top_T;
+            points_e += document.getElementById('mid_e').value * Mid_T;
+            points_e += document.getElementById('bot_e').value * Bot_T;
+            if(document.getElementById("engaged").value == "Engaged")
+            {
+                points_e += Engaged_E;
+            } else if(document.getElementById("engaged").value == "Docked")
+            {
+                points_e += Docked_E;
+            }
+            points = points_a + points_t + points_e;
+
+            document.getElementById("pt").value = points;
+            asp.net
+        }
     </script>
     <h1>Input</h1>
 
     <h4>Submit Match Data</h4>
-    
     <hr/>
 </head>
 
-<body onload="hideID('auto');hideID('tele')">
+<body onload="hideID('auto');hideID('tele');hideID('end');hideID('sub')">
     <div class="row">
         <div class="col-md-4">
-            <form asp-action="Index" class="forms">
+            <form asp-action="Index" class="forms" onKeydown="return event.key != 'Enter';" onsubmit="score()">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div asp-asp-validation-summary="ID" class="hidden"></div>
                 <div id="match" class="match">
@@ -173,18 +218,23 @@
                         </div>
                     </div>
 
+                    <div>
+                        <button type="button" class="inputs" id="mob" onclick="setMobility();hideID('mob')">Mobility</button>
+                        <input id="mobile" type="hidden" asp-for="Mobility" value="false" style="display: none;"/>
+                    </div>
+
                     <div class="form-group">
                         <label asp-for="Engaged_A" class="control-label"></label>
-                        <select asp-for="Engaged_A" class="control-label">
+                        <select id="engaged_a" asp-for="Engaged_A" class="control-label">
                             <option selected value="None">None</option>
                             <option value="Docked">Docked</option>
                             <option value="Engaged">Engaged</option>
                         </select>
                         <span asp-validation-for="Engaged_A" class="text-danger"></span>
-
-
-                        <button type="button" class="inputs next" onclick="hideID('auto');showID('tele');hideID('location');hideID('place')">Done</button>
                     </div>
+
+                    <button type="button" class="inputs next" onclick="hideID('auto');showID('tele');hideID('location');hideID('place');score()">Done</button>
+
                 </div>
 
 
@@ -231,6 +281,62 @@
                             <button type="button" class="inputs add" onclick="add('bot');cycleStop();showID('obj');hideID('place')">Scored Bot</button>
                         </div>
                     </div>
+                    
+                    <div class="cycle" id="cycle">
+                        <input type="hidden" asp-for="CycleTime" class="inputs" id="cyclei" value="0"/>
+                    </div>
+
+                    <button type="button" class="inputs next" onclick="hideID('tele');showID('end');hideID('location_e');hideID('place_e')">Done</button>
+                                    
+                </div> 
+                <div class="end" id="end">
+                    <h4>End Game</h4>
+                    <div class="obj_e" id="obj_e">
+                        <div class="form-group">
+                            <input type="hidden" asp-for="Cones_E" class="inputs" id="cone_e" value="0"/>
+                            <button type="button" class="inputs add" onclick="showID('location_e');hideID('obj_e');add('cone_e');">Cone</button>
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" asp-for="Cubes_E" class="inputs" id="cube_e" value="0"/>
+                            <button type="button" class="inputs add" onclick="showID('location_e');hideID('obj_e');add('cube_e');hideID('obj_e')">Cube</button>
+                        </div>
+                    </div>
+
+                    <div class="location_e" id="location_e">
+                        <div class="form-group">
+                            <input type="hidden" asp-for="DoubleSubstation_E" class="inputs" id="doubleSubstation_e" value="0"/>
+                            <button type="button" class="inputs add" onclick="add('doubleSubstation_e');showID('place_e');hideID('location_e')">Double Station</button>
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" asp-for="SingleSubstation_E" class="inputs" id="singleSubstation_e" value="0"/>
+                            <button type="button" class="inputs add" onclick="add('singleSubstation_e');showID('place_e');hideID('location_e')">Single Station</button>
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" asp-for="Center_E" class="inputs" id="center_e" value="0"/>
+                            <button type="button" class="inputs add" onclick="add('center_e');showID('place_e');hideID('location_e')">Center Floor</button>
+                        </div>
+                    </div>
+
+                    <div class="place_e" id="place_e">
+                        <div class="form-group">
+                            <input type="hidden" asp-for="Top_E" class="inputs" id="top_e" value="0"/>
+                            <button type="button" class="inputs add" onclick="add('top_e');showID('obj_e');hideID('place_e')">Scored Top</button>
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" asp-for="Mid_E" class="inputs" id="mid_e" value="0"/>
+                            <button type="button" class="inputs add" onclick="add('mid_e');showID('obj_e');hideID('place_e')">Scored Mid</button>
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" asp-for="Bot_E" class="inputs" id="bot_e" value="0"/>
+                            <button type="button" class="inputs add" onclick="add('bot_e');showID('obj_e');hideID('place_e')">Scored Bot</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button type="button" class="inputs" id="park" onclick="setParked();hideID('park')">Parked</button>
+                        <input id="parked" type="hidden" asp-for="Parked" value="false" style="display: none;"/>
+                    </div>
+
                     <div class="form-group">
                         <label asp-for="Engaged" class="control-label"></label>
                         <select asp-for="Engaged" class="control-label">
@@ -240,13 +346,15 @@
                         </select>
                         <span asp-validation-for="Engaged" class="text-danger"></span>
                     </div>
-                    <div class="cycle" id="cycle">
-                        <input type="hidden" asp-for="CycleTime" class="inputs" id="cyclei" value="0"/>
-                    </div>
+                    <button type="button" class="inputs next" onclick="hideID('end');showID('sub');score()">Done</button>
+                </div>  
+
+                <div class="sub" id="sub">
                     <div class="form-group">
+                        <input id="pt" type="hidden" asp-for="Points" value="0" style="display: none;"/>
                         <input type="submit" value="Save" class="btn btn-primary"/>
                     </div> 
-                </div>     
+                </div>
 
             </form>        
         </div>

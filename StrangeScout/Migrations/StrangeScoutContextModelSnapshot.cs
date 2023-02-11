@@ -28,10 +28,16 @@ namespace StrangeScout.Migrations
                     b.Property<int>("Bot_A")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("Bot_E")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("Center")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Center_A")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Center_E")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Cones")
@@ -40,10 +46,16 @@ namespace StrangeScout.Migrations
                     b.Property<int>("Cones_A")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("Cones_E")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("Cubes")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Cubes_A")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Cubes_E")
                         .HasColumnType("INTEGER");
 
                     b.Property<float>("CycleTime")
@@ -53,6 +65,9 @@ namespace StrangeScout.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("DoubleSubstation_A")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("DoubleSubstation_E")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Engaged")
@@ -71,6 +86,15 @@ namespace StrangeScout.Migrations
                     b.Property<int>("Mid_A")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("Mid_E")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Mobility")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Parked")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("Points")
                         .HasColumnType("INTEGER");
 
@@ -83,6 +107,9 @@ namespace StrangeScout.Migrations
                     b.Property<int>("SingleSubstation_A")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("SingleSubstation_E")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("TeamNumber")
                         .HasColumnType("INTEGER");
 
@@ -90,6 +117,9 @@ namespace StrangeScout.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Top_A")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Top_E")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("ID");
