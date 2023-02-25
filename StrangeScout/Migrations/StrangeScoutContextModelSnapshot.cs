@@ -31,6 +31,9 @@ namespace StrangeScout.Migrations
                     b.Property<int>("Bot_E")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("BotsEngaged")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("Center")
                         .HasColumnType("INTEGER");
 

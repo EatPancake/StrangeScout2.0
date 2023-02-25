@@ -3,8 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using StrangeScout.Data;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<StrangeScoutContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("StrangeScoutContext") ?? throw new InvalidOperationException("Connection string 'MatchesModelContext' not found.")));
-
+    options.UseSqlite("Data Source=StrangeScoutContext-8513e199-7def-4329-8d0f-1f297ddc90e8.db"));
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

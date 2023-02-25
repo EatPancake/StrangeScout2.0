@@ -52,6 +52,7 @@ namespace StrangeScout.Models
         public string? Engaged_A {get; set;}
 
         public string? Engaged {get; set;}
+        public int BotsEngaged { get; set; }
 
         public string? Mobility {get; set;}
 

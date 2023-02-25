@@ -10,8 +10,8 @@ using StrangeScout.Data;
 namespace StrangeScout.Migrations
 {
     [DbContext(typeof(StrangeScoutContext))]
-    [Migration("20230210202730_Initalcreate")]
-    partial class Initalcreate
+    [Migration("20230225182815_InitalCreate")]
+    partial class InitalCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,6 +32,9 @@ namespace StrangeScout.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Bot_E")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("BotsEngaged")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Center")

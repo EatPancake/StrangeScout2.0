@@ -23,11 +23,11 @@ form {
 }
 
 button.inputs{
-    width: 100%;
-    height: 60px;
+    width: 200px;
+    height: 75px;
     border: 2px;
     border-radius: 6px;
-    margin-bottom: 15%;
+    margin-bottom: 5%;
     text-align: center;
 }
 
@@ -38,7 +38,7 @@ button.sub{
     background-color: palevioletred;
 }
 input.inputs{
-    border: 2px solid red;
+    border: 5px solid red;
     border-radius: 4px;
 }
 
@@ -49,4 +49,14 @@ input.inputs{
 }
 button.next{
     background-color: lightsalmon;
+}
+
+select{
+    border-radius: .25em;
+    outline: none;
+    margin-bottom: 5%;
+}
+
+input {
+    border-radius: 4px;
 }
