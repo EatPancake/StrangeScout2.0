@@ -52,19 +52,27 @@
             endTime = Date.now();
             var time = Date.now() - startTime;
             time = time / 1000;
-            if(!time > 400)
-                times.push(time);
+            times.push(time);
+
+            console.log("End Time " + endTime + ", Start Time " + startTime);
             average();
         }
         function average()
         {
             var num = 0;
             for(var i = 0; i < times.length; i++)
-            {
+            {   
                 num += times[i];
             }
+            console.log('sum ' + num);
             num = num/times.length;
+            console.log('avg ' + num);
             num = (Math.round(num * 100)/100); 
+            console.log(num)
+            if(num > 0)
+            {
+
+            }
             document.getElementById("cyclei").value = num;
         }
 
@@ -174,29 +182,17 @@
             document.getElementById("pt").value = points;
         }
 
-        @* var span = document.getElementById('span');
-
-        function time() {
-            var d = new Date();
-            var s = d.getSeconds();
-            var m = d.getMinutes();
-            var h = d.getHours();
-            var ms = d.getMilliseconds();
-            span.textContent = 
-                ("0" +h).substr(-2) + ":" + ("0" + m).substr(-2) + ":" + ("0" + s).substr(-2);
-        }
-
-        setInterval(time,1000); *@
-
 
     </script>
-    <h1>Input</h1>
-    <span id="span"></span>
-    <h4>Submit Match Data</h4>
-    <hr/>
 </head>
 
 <body onload="hideID('auto');hideID('tele');hideID('end');hideID('sub')">
+    <div>
+        <h1>Input</h1>
+        <h4>Submit Match Data</h4>
+        <hr/>
+    </div>
+
     <div class="row">
         <div class="col-md-4">
             <form asp-action="Index" class="forms" onKeydown="return event.key != 'Enter';" onsubmit="score()">
@@ -309,11 +305,11 @@
                     <div class="obj" id="obj">
                         <div class="form-group">
                             <input type="hidden" asp-for="Cones" class="inputs" id="cone" value="0"/>
-                            <button type="button" class="inputs add" onclick="showID('location');hideID('obj');add('cone');cycleStart();setCC(1)">Cone</button>
+                            <button type="button" class="inputs add" onclick="showID('location');hideID('obj');add('cone');setCC(1);cycleStart()">Cone</button>
                         </div>
                         <div class="form-group">
                             <input type="hidden" asp-for="Cubes" class="inputs" id="cube" value="0"/>
-                            <button type="button" class="inputs add" onclick="showID('location');hideID('obj');add('cube');cycleStart();hideID('obj');setCC(2)">Cube</button>
+                            <button type="button" class="inputs add" onclick="showID('location');hideID('obj');add('cube');setCC(2);cycleStart()">Cube</button>
                         </div>
                     </div>
 
