@@ -10,24 +10,43 @@
     <a asp-action="Create">Create New</a>
 </p> *@
 
+<form asp-controller="Matches" asp-action="Index">
+    <p>
+        Event: <input type="text" name="events" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<form asp-controller="Matches" asp-action="Index">
+    <p>
+        Round: <input type="text" name="round" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<form asp-controller="Matches" asp-action="Index">
+    <p>
+        Team: <input type="text" name="team" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Event)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["events"]">@Html.DisplayNameFor(model => model.Event)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Round)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["round"]">@Html.DisplayNameFor(model => model.Round)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TeamNumber)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["team"]">@Html.DisplayNameFor(model => model.TeamNumber)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CycleTime)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["cycle"]">@Html.DisplayNameFor(model => model.CycleTime)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Points)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["points"]">@Html.DisplayNameFor(model => model.Points)</a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Engaged_A)

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -20,11 +21,60 @@ namespace StrangeScout.Controllers
         }
 
         // GET: Match
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string events,string sortOrder,int team, int round)
         {
-              return _context.Matches != null ? 
-                          View(await _context.Matches.ToListAsync()) :
-                          Problem("Entity set 'StrangeScoutContext.Matches'  is null.");
+            ViewData["events"] = String.IsNullOrEmpty(sortOrder) ? "e" : "";
+            ViewData["team"] = String.IsNullOrEmpty(sortOrder) ? "t" : "";
+            ViewData["round"] = String.IsNullOrEmpty(sortOrder) ? "r" : "";
+            ViewData["points"] = String.IsNullOrEmpty(sortOrder) ? "p" : "";
+            ViewData["cycle"] = String.IsNullOrEmpty(sortOrder) ? "c" : "";
+
+            var match = from m in _context.Matches
+                    select m;
+
+            if(!String.IsNullOrEmpty(events))
+            {
+                match = match.Where(s => s.Event!.Contains(events));
+            }
+
+            if(!(team == 0))
+            {
+                match = match.Where(s => s.TeamNumber!.Equals(team));
+            }
+
+            if (!(round == 0))
+            {
+                match = match.Where(s => s.Round!.Equals(round));
+            }
+
+            switch (sortOrder)
+            {
+                case "e":
+                    match = match.OrderByDescending(s => s.Event);
+                    break;
+                case "t":
+                    match = match.OrderByDescending(s => s.TeamNumber);
+                    break;
+                case "r":
+                    match = match.OrderByDescending(s => s.Round);
+                    break;
+                case "p":
+                    match = match.OrderByDescending(s => s.Points);
+                    break;
+                case "c":
+                    match = match.OrderByDescending(s => s.CycleTime);
+                    break;
+                default:
+                    match = match.OrderByDescending(s => s.Event);
+                    break;
+            }
+
+
+            return View(await match.AsNoTracking().ToListAsync());
+
+              //return _context.Matches != null ? 
+              //            View(await _context.Matches.ToListAsync()) :
+              //            Problem("Entity set 'StrangeScoutContext.Matches'  is null.");
         }
 
         // GET: Match/Details/5
