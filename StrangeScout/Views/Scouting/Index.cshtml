@@ -27,8 +27,14 @@
         var times = [];
         var points = 0;
 
+        var teleStart = null;
+        var teleTime = 5;
+        
+
         document.getElementById("cyclei").hidden = true;
         document.getElementById("hidden").style.display ="none";
+
+
 
         function add(id)
         {
@@ -143,6 +149,18 @@
         {
             statecc = c;
         }
+        function teleS()
+        {
+            teleStart = Date.now();
+        }
+        function teleE()
+        {
+            let teleEnd = (Date.now()-teleStart)/1000;
+            if( teleEnd> teleTime)
+            {
+                hideID('tele'); showID('end'); hideID('location_e'); hideID('place_e'); cycleStop();
+            }
+        }
 
 
         function score()
@@ -207,10 +225,15 @@
                             <option value="week 1">Week 1</option>
                             <option value="week 1.5">Week 1.5</option>
                             <option value="week 2">Week 2</option>
+                            <option value="week 2.5">Week 2.5</option>
                             <option value="week 3">Week 3</option>
-                            <option value="week 4">Week 5</option>
+                            <option value="week 3.5">Week 3.5</option>
+                            <option value="week 4">Week 4</option>
+                            <option value="week 4.5">Week 4.5</option>
                             <option value="week 5">Week 5</option>
+                            <option value="week 5.5">Week 5.5</option>
                             <option value="week 6">Week 6</option>
+                            <option value="week 6.5">Week 6.5</option>
                             <option value="DistrictChampionships">District Championships</option>
                             <option value="FIRSTChampionship">FIRST Championship</option>
                         </select>
@@ -292,7 +315,7 @@
                         <span asp-validation-for="Engaged_A" class="text-danger"></span>
                     </div>
 
-                    <button type="button" class="inputs next" onclick="hideID('auto');showID('tele');hideID('location');hideID('place');cycleStart()">Done</button>
+                    <button type="button" class="inputs next" onclick="teleS();hideID('auto');showID('tele');hideID('location');hideID('place');cycleStart();">Done</button>
 
                 </div>
 
@@ -348,7 +371,7 @@
                         <input type="hidden" asp-for="CycleTime" class="inputs" id="cyclei" value="0"/>
                     </div>
 
-                    <button type="button" class="inputs next" onclick="hideID('tele');showID('end');hideID('location_e');hideID('place_e');cycleStop()">Done</button>
+                    <button type="button" class="inputs next" onclick="teleE()">Done</button>
                                     
                 </div> 
                 <div class="end" id="end">
