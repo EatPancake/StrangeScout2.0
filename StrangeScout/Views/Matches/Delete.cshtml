@@ -18,6 +18,66 @@
             @Html.DisplayFor(model => model.Event)
         </dd>
         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Round)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Round)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TeamNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TeamNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cones)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cones)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cubes)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cubes)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DoubleSubstation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DoubleSubstation)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SingleSubstation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SingleSubstation)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Center)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Center)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Top)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Top)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CycleTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CycleTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Engaged)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Engaged)
+        </dd>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Points)
         </dt>
         <dd class = "col-sm-10">
@@ -26,7 +86,7 @@
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="TeamNumber" />
+        <input type="hidden" asp-for="ID" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>

@@ -1,0 +1,62 @@
+body {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+h4 {
+    text-align: center;
+}
+
+div.col-md-4
+{
+    display: block;
+    text-align: center;
+}
+
+form {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+button.inputs{
+    width: 200px;
+    height: 75px;
+    border: 2px;
+    border-radius: 6px;
+    margin-bottom: 5%;
+    text-align: center;
+}
+
+button.add{
+    background-color: lightblue;
+}
+button.sub{
+    background-color: palevioletred;
+}
+input.inputs{
+    border: 5px solid red;
+    border-radius: 4px;
+}
+
+.col-md-4{
+    margin:auto;
+    width: auto;
+
+}
+button.next{
+    background-color: lightsalmon;
+}
+
+select{
+    border-radius: .25em;
+    outline: none;
+    margin-bottom: 5%;
+}
+
+input {
+    border-radius: 4px;
+}
